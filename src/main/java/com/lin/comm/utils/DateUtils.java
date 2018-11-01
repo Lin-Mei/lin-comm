@@ -36,7 +36,9 @@ public class DateUtils {
         formarts.add(new MyFormat("yyyy-MM-dd HH:mm:ss.SSS","^\\d{4}-\\d{1,2}-\\d{1,2} {1}\\d{1,2}:\\d{1,2}:\\d{1,2}\\.\\d{3}$"));
         formarts.add(new MyFormat("yyyy-MM-dd'T'HH:mm:ss'Z'","^\\d{4}-\\d{1,2}-\\d{1,2}T{1}\\d{1,2}:\\d{1,2}:\\d{1,2}Z$"));
         formarts.add(new MyFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'","^\\d{4}-\\d{1,2}-\\d{1,2}T{1}\\d{1,2}:\\d{1,2}:\\d{1,2}\\.\\d{3}Z$"));
-        formarts.add(new MyFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ","^\\d{4}-\\d{1,2}-\\d{1,2}T{1}\\d{1,2}:\\d{1,2}:\\d{1,2}\\.\\d{3}\\+\\d{4}$"));
+        formarts.add(new MyFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ","^\\d{4}-\\d{1,2}-\\d{1,2}T{1}\\d{1,2}:\\d{1,2}:\\d{1,2}\\.\\d{3}(\\+|-)\\d{4}$"));
+        formarts.add(new MyFormat("yyyy-MM-dd'T'HH:mm:ss.sssZZ","^\\d{4}-\\d{1,2}-\\d{1,2}T{1}\\d{1,2}:\\d{1,2}:\\d{1,2}\\.\\d{3}(\\+|-)\\d{2}:\\d{2}$"));
+
     }
 
     public static Date strToDate(String value){
