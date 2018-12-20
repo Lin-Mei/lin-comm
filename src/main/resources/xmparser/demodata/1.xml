@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<mapper namespace="com.botman.saas.roboconfig.consumer.dao.ConsumerDao">
+    <insert id="addConsumer" useGeneratedKeys="true" keyProperty="consumerId">
+        insert into consumer (name, password, phone_num, profile, is_test_usr)
+        values (#{name}, #{password}, #{phoneNum}, #{profile}, #{isTestUsr})
+    </insert>
+    <insert id="insertWithPrimaryKey">
+        insert into consumer (consumer_id, name, password, phone_num, profile)
+        values (#{consumerId}, #{name}, #{password}, #{phoneNum}, #{profile}, #{isTestUser})
+    </insert>
+    <update id="updateConsumer">
+        update consumer set name = #{name},
+        phone_num = #{phoneNum}, profile = #{profile}, updated_at = now() where consumer_id = #{consumerId}
+    </update>
+    <select id="findByConsumerId" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where consumer_id = #{id}
+    </select>
+    <select id="findByConsumerByPhone" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where phone_num = #{it}
+    </select>
+    <select id="findByName" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where name =#{name}
+    </select>
+    <delete id="deleteConsumer">
+        delete from consumer where consumer_id = #{id}
+    </delete>
+    <delete id="deleteByConsumerPhone">
+        delete from consumer where phone_num = #{phone}
+    </delete>
+    <select id="getConsumerByName" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where name = #{name}
+    </select>
+    <select id="findByConsumerAccountId" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select c.* from consumer_acct ca inner join consumer c using (consumer_id) where ca.consumer_acct_id = #{consumerAccountId}
+    </select>
+    <select id="getConsumersByVendor" resultType="com.botman.saas.roboconfig.consumer.model.bo.ConsumerAccountInfo">
+        select c.*, ca.vendor_id as vendor_id, ca.consumer_acct_id as consumer_acct_id from consumer c left join consumer_acct ca on ca.consumer_id = c.consumer_id where ca.vendor_id = #{vendorId}
+    </select>
+    <insert id="addConsumer" useGeneratedKeys="true" keyProperty="consumerId">
+        insert into consumer (name, password, phone_num, profile, is_test_usr)
+        values (#{name}, #{password}, #{phoneNum}, #{profile}, #{isTestUsr})
+    </insert>
+    <insert id="insertWithPrimaryKey">
+        insert into consumer (consumer_id, name, password, phone_num, profile)
+        values (#{consumerId}, #{name}, #{password}, #{phoneNum}, #{profile}, #{isTestUser})
+    </insert>
+    <update id="updateConsumer">
+        update consumer set name = #{name},
+        phone_num = #{phoneNum}, profile = #{profile}, updated_at = now() where consumer_id = #{consumerId}
+    </update>
+    <select id="findByConsumerId" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where consumer_id = #{id}
+    </select>
+    <select id="findByConsumerByPhone" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where phone_num = #{it}
+    </select>
+    <select id="findByName" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where name =#{name}
+    </select>
+    <delete id="deleteConsumer">
+        delete from consumer where consumer_id = #{id}
+    </delete>
+    <delete id="deleteByConsumerPhone">
+        delete from consumer where phone_num = #{phone}
+    </delete>
+    <select id="getConsumerByName" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where name = #{name}
+    </select>
+    <select id="findByConsumerAccountId" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select c.* from consumer_acct ca inner join consumer c using (consumer_id) where ca.consumer_acct_id = #{consumerAccountId}
+    </select>
+    <select id="getConsumersByVendor" resultType="com.botman.saas.roboconfig.consumer.model.bo.ConsumerAccountInfo">
+        select c.*, ca.vendor_id as vendor_id, ca.consumer_acct_id as consumer_acct_id from consumer c left join consumer_acct ca on ca.consumer_id = c.consumer_id where ca.vendor_id = #{vendorId}
+    </select>
+    <insert id="addConsumer" useGeneratedKeys="true" keyProperty="consumerId">
+        insert into consumer (name, password, phone_num, profile, is_test_usr)
+        values (#{name}, #{password}, #{phoneNum}, #{profile}, #{isTestUsr})
+    </insert>
+    <insert id="insertWithPrimaryKey">
+        insert into consumer (consumer_id, name, password, phone_num, profile)
+        values (#{consumerId}, #{name}, #{password}, #{phoneNum}, #{profile}, #{isTestUser})
+    </insert>
+    <update id="updateConsumer">
+        update consumer set name = #{name},
+        phone_num = #{phoneNum}, profile = #{profile}, updated_at = now() where consumer_id = #{consumerId}
+    </update>
+    <select id="findByConsumerId" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where consumer_id = #{id}
+    </select>
+    <select id="findByConsumerByPhone" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where phone_num = #{it}
+    </select>
+    <select id="findByName" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where name =#{name}
+    </select>
+    <delete id="deleteConsumer">
+        delete from consumer where consumer_id = #{id}
+    </delete>
+    <delete id="deleteByConsumerPhone">
+        delete from consumer where phone_num = #{phone}
+    </delete>
+    <select id="getConsumerByName" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where name = #{name}
+    </select>
+    <select id="findByConsumerAccountId" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select c.* from consumer_acct ca inner join consumer c using (consumer_id) where ca.consumer_acct_id = #{consumerAccountId}
+    </select>
+    <select id="getConsumersByVendor" resultType="com.botman.saas.roboconfig.consumer.model.bo.ConsumerAccountInfo">
+        select c.*, ca.vendor_id as vendor_id, ca.consumer_acct_id as consumer_acct_id from consumer c left join consumer_acct ca on ca.consumer_id = c.consumer_id where ca.vendor_id = #{vendorId}
+    </select>
+    <insert id="addConsumer" useGeneratedKeys="true" keyProperty="consumerId">
+        insert into consumer (name, password, phone_num, profile, is_test_usr)
+        values (#{name}, #{password}, #{phoneNum}, #{profile}, #{isTestUsr})
+    </insert>
+    <insert id="insertWithPrimaryKey">
+        insert into consumer (consumer_id, name, password, phone_num, profile)
+        values (#{consumerId}, #{name}, #{password}, #{phoneNum}, #{profile}, #{isTestUser})
+    </insert>
+    <update id="updateConsumer">
+        update consumer set name = #{name},
+        phone_num = #{phoneNum}, profile = #{profile}, updated_at = now() where consumer_id = #{consumerId}
+    </update>
+    <select id="findByConsumerId" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where consumer_id = #{id}
+    </select>
+    <select id="findByConsumerByPhone" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where phone_num = #{it}
+    </select>
+    <select id="findByName" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where name =#{name}
+    </select>
+    <delete id="deleteConsumer">
+        delete from consumer where consumer_id = #{id}
+    </delete>
+    <delete id="deleteByConsumerPhone">
+        delete from consumer where phone_num = #{phone}
+    </delete>
+    <select id="getConsumerByName" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where name = #{name}
+    </select>
+    <select id="findByConsumerAccountId" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select c.* from consumer_acct ca inner join consumer c using (consumer_id) where ca.consumer_acct_id = #{consumerAccountId}
+    </select>
+    <select id="getConsumersByVendor" resultType="com.botman.saas.roboconfig.consumer.model.bo.ConsumerAccountInfo">
+        select c.*, ca.vendor_id as vendor_id, ca.consumer_acct_id as consumer_acct_id from consumer c left join consumer_acct ca on ca.consumer_id = c.consumer_id where ca.vendor_id = #{vendorId}
+    </select>
+    <insert id="addConsumer" useGeneratedKeys="true" keyProperty="consumerId">
+        insert into consumer (name, password, phone_num, profile, is_test_usr)
+        values (#{name}, #{password}, #{phoneNum}, #{profile}, #{isTestUsr})
+    </insert>
+    <insert id="insertWithPrimaryKey">
+        insert into consumer (consumer_id, name, password, phone_num, profile)
+        values (#{consumerId}, #{name}, #{password}, #{phoneNum}, #{profile}, #{isTestUser})
+    </insert>
+    <update id="updateConsumer">
+        update consumer set name = #{name},
+        phone_num = #{phoneNum}, profile = #{profile}, updated_at = now() where consumer_id = #{consumerId}
+    </update>
+    <select id="findByConsumerId" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where consumer_id = #{id}
+    </select>
+    <select id="findByConsumerByPhone" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where phone_num = #{it}
+    </select>
+    <select id="findByName" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where name =#{name}
+    </select>
+    <delete id="deleteConsumer">
+        delete from consumer where consumer_id = #{id}
+    </delete>
+    <delete id="deleteByConsumerPhone">
+        delete from consumer where phone_num = #{phone}
+    </delete>
+    <select id="getConsumerByName" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where name = #{name}
+    </select>
+    <select id="findByConsumerAccountId" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select c.* from consumer_acct ca inner join consumer c using (consumer_id) where ca.consumer_acct_id = #{consumerAccountId}
+    </select>
+    <select id="getConsumersByVendor" resultType="com.botman.saas.roboconfig.consumer.model.bo.ConsumerAccountInfo">
+        select c.*, ca.vendor_id as vendor_id, ca.consumer_acct_id as consumer_acct_id from consumer c left join consumer_acct ca on ca.consumer_id = c.consumer_id where ca.vendor_id = #{vendorId}
+    </select>
+    <insert id="addConsumer" useGeneratedKeys="true" keyProperty="consumerId">
+        insert into consumer (name, password, phone_num, profile, is_test_usr)
+        values (#{name}, #{password}, #{phoneNum}, #{profile}, #{isTestUsr})
+    </insert>
+    <insert id="insertWithPrimaryKey">
+        insert into consumer (consumer_id, name, password, phone_num, profile)
+        values (#{consumerId}, #{name}, #{password}, #{phoneNum}, #{profile}, #{isTestUser})
+    </insert>
+    <update id="updateConsumer">
+        update consumer set name = #{name},
+        phone_num = #{phoneNum}, profile = #{profile}, updated_at = now() where consumer_id = #{consumerId}
+    </update>
+    <select id="findByConsumerId" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where consumer_id = #{id}
+    </select>
+    <select id="findByConsumerByPhone" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where phone_num = #{it}
+    </select>
+    <select id="findByName" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where name =#{name}
+    </select>
+    <delete id="deleteConsumer">
+        delete from consumer where consumer_id = #{id}
+    </delete>
+    <delete id="deleteByConsumerPhone">
+        delete from consumer where phone_num = #{phone}
+    </delete>
+    <select id="getConsumerByName" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where name = #{name}
+    </select>
+    <select id="findByConsumerAccountId" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select c.* from consumer_acct ca inner join consumer c using (consumer_id) where ca.consumer_acct_id = #{consumerAccountId}
+    </select>
+    <select id="getConsumersByVendor" resultType="com.botman.saas.roboconfig.consumer.model.bo.ConsumerAccountInfo">
+        select c.*, ca.vendor_id as vendor_id, ca.consumer_acct_id as consumer_acct_id from consumer c left join consumer_acct ca on ca.consumer_id = c.consumer_id where ca.vendor_id = #{vendorId}
+    </select>
+    <insert id="addConsumer" useGeneratedKeys="true" keyProperty="consumerId">
+        insert into consumer (name, password, phone_num, profile, is_test_usr)
+        values (#{name}, #{password}, #{phoneNum}, #{profile}, #{isTestUsr})
+    </insert>
+    <insert id="insertWithPrimaryKey">
+        insert into consumer (consumer_id, name, password, phone_num, profile)
+        values (#{consumerId}, #{name}, #{password}, #{phoneNum}, #{profile}, #{isTestUser})
+    </insert>
+    <update id="updateConsumer">
+        update consumer set name = #{name},
+        phone_num = #{phoneNum}, profile = #{profile}, updated_at = now() where consumer_id = #{consumerId}
+    </update>
+    <select id="findByConsumerId" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where consumer_id = #{id}
+    </select>
+    <select id="findByConsumerByPhone" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where phone_num = #{it}
+    </select>
+    <select id="findByName" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where name =#{name}
+    </select>
+    <delete id="deleteConsumer">
+        delete from consumer where consumer_id = #{id}
+    </delete>
+    <delete id="deleteByConsumerPhone">
+        delete from consumer where phone_num = #{phone}
+    </delete>
+    <select id="getConsumerByName" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where name = #{name}
+    </select>
+    <select id="findByConsumerAccountId" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select c.* from consumer_acct ca inner join consumer c using (consumer_id) where ca.consumer_acct_id = #{consumerAccountId}
+    </select>
+    <select id="getConsumersByVendor" resultType="com.botman.saas.roboconfig.consumer.model.bo.ConsumerAccountInfo">
+        select c.*, ca.vendor_id as vendor_id, ca.consumer_acct_id as consumer_acct_id from consumer c left join consumer_acct ca on ca.consumer_id = c.consumer_id where ca.vendor_id = #{vendorId}
+    </select>
+    <insert id="addConsumer" useGeneratedKeys="true" keyProperty="consumerId">
+        insert into consumer (name, password, phone_num, profile, is_test_usr)
+        values (#{name}, #{password}, #{phoneNum}, #{profile}, #{isTestUsr})
+    </insert>
+    <insert id="insertWithPrimaryKey">
+        insert into consumer (consumer_id, name, password, phone_num, profile)
+        values (#{consumerId}, #{name}, #{password}, #{phoneNum}, #{profile}, #{isTestUser})
+    </insert>
+    <update id="updateConsumer">
+        update consumer set name = #{name},
+        phone_num = #{phoneNum}, profile = #{profile}, updated_at = now() where consumer_id = #{consumerId}
+    </update>
+    <select id="findByConsumerId" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where consumer_id = #{id}
+    </select>
+    <select id="findByConsumerByPhone" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where phone_num = #{it}
+    </select>
+    <select id="findByName" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where name =#{name}
+    </select>
+    <delete id="deleteConsumer">
+        delete from consumer where consumer_id = #{id}
+    </delete>
+    <delete id="deleteByConsumerPhone">
+        delete from consumer where phone_num = #{phone}
+    </delete>
+    <select id="getConsumerByName" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where name = #{name}
+    </select>
+    <select id="findByConsumerAccountId" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select c.* from consumer_acct ca inner join consumer c using (consumer_id) where ca.consumer_acct_id = #{consumerAccountId}
+    </select>
+    <select id="getConsumersByVendor" resultType="com.botman.saas.roboconfig.consumer.model.bo.ConsumerAccountInfo">
+        select c.*, ca.vendor_id as vendor_id, ca.consumer_acct_id as consumer_acct_id from consumer c left join consumer_acct ca on ca.consumer_id = c.consumer_id where ca.vendor_id = #{vendorId}
+    </select>
+    <insert id="addConsumer" useGeneratedKeys="true" keyProperty="consumerId">
+        insert into consumer (name, password, phone_num, profile, is_test_usr)
+        values (#{name}, #{password}, #{phoneNum}, #{profile}, #{isTestUsr})
+    </insert>
+    <insert id="insertWithPrimaryKey">
+        insert into consumer (consumer_id, name, password, phone_num, profile)
+        values (#{consumerId}, #{name}, #{password}, #{phoneNum}, #{profile}, #{isTestUser})
+    </insert>
+    <update id="updateConsumer">
+        update consumer set name = #{name},
+        phone_num = #{phoneNum}, profile = #{profile}, updated_at = now() where consumer_id = #{consumerId}
+    </update>
+    <select id="findByConsumerId" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where consumer_id = #{id}
+    </select>
+    <select id="findByConsumerByPhone" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where phone_num = #{it}
+    </select>
+    <select id="findByName" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where name =#{name}
+    </select>
+    <delete id="deleteConsumer">
+        delete from consumer where consumer_id = #{id}
+    </delete>
+    <delete id="deleteByConsumerPhone">
+        delete from consumer where phone_num = #{phone}
+    </delete>
+    <select id="getConsumerByName" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where name = #{name}
+    </select>
+    <select id="findByConsumerAccountId" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select c.* from consumer_acct ca inner join consumer c using (consumer_id) where ca.consumer_acct_id = #{consumerAccountId}
+    </select>
+    <select id="getConsumersByVendor" resultType="com.botman.saas.roboconfig.consumer.model.bo.ConsumerAccountInfo">
+        select c.*, ca.vendor_id as vendor_id, ca.consumer_acct_id as consumer_acct_id from consumer c left join consumer_acct ca on ca.consumer_id = c.consumer_id where ca.vendor_id = #{vendorId}
+    </select>
+    <insert id="addConsumer" useGeneratedKeys="true" keyProperty="consumerId">
+        insert into consumer (name, password, phone_num, profile, is_test_usr)
+        values (#{name}, #{password}, #{phoneNum}, #{profile}, #{isTestUsr})
+    </insert>
+    <insert id="insertWithPrimaryKey">
+        insert into consumer (consumer_id, name, password, phone_num, profile)
+        values (#{consumerId}, #{name}, #{password}, #{phoneNum}, #{profile}, #{isTestUser})
+    </insert>
+    <update id="updateConsumer">
+        update consumer set name = #{name},
+        phone_num = #{phoneNum}, profile = #{profile}, updated_at = now() where consumer_id = #{consumerId}
+    </update>
+    <select id="findByConsumerId" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where consumer_id = #{id}
+    </select>
+    <select id="findByConsumerByPhone" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where phone_num = #{it}
+    </select>
+    <select id="findByName" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where name =#{name}
+    </select>
+    <delete id="deleteConsumer">
+        delete from consumer where consumer_id = #{id}
+    </delete>
+    <delete id="deleteByConsumerPhone">
+        delete from consumer where phone_num = #{phone}
+    </delete>
+    <select id="getConsumerByName" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where name = #{name}
+    </select>
+    <select id="findByConsumerAccountId" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select c.* from consumer_acct ca inner join consumer c using (consumer_id) where ca.consumer_acct_id = #{consumerAccountId}
+    </select>
+    <select id="getConsumersByVendor" resultType="com.botman.saas.roboconfig.consumer.model.bo.ConsumerAccountInfo">
+        select c.*, ca.vendor_id as vendor_id, ca.consumer_acct_id as consumer_acct_id from consumer c left join consumer_acct ca on ca.consumer_id = c.consumer_id where ca.vendor_id = #{vendorId}
+    </select>
+    <insert id="addConsumer" useGeneratedKeys="true" keyProperty="consumerId">
+        insert into consumer (name, password, phone_num, profile, is_test_usr)
+        values (#{name}, #{password}, #{phoneNum}, #{profile}, #{isTestUsr})
+    </insert>
+    <insert id="insertWithPrimaryKey">
+        insert into consumer (consumer_id, name, password, phone_num, profile)
+        values (#{consumerId}, #{name}, #{password}, #{phoneNum}, #{profile}, #{isTestUser})
+    </insert>
+    <update id="updateConsumer">
+        update consumer set name = #{name},
+        phone_num = #{phoneNum}, profile = #{profile}, updated_at = now() where consumer_id = #{consumerId}
+    </update>
+    <select id="findByConsumerId" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where consumer_id = #{id}
+    </select>
+    <select id="findByConsumerByPhone" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where phone_num = #{it}
+    </select>
+    <select id="findByName" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where name =#{name}
+    </select>
+    <delete id="deleteConsumer">
+        delete from consumer where consumer_id = #{id}
+    </delete>
+    <delete id="deleteByConsumerPhone">
+        delete from consumer where phone_num = #{phone}
+    </delete>
+    <select id="getConsumerByName" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where name = #{name}
+    </select>
+    <select id="findByConsumerAccountId" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select c.* from consumer_acct ca inner join consumer c using (consumer_id) where ca.consumer_acct_id = #{consumerAccountId}
+    </select>
+    <select id="getConsumersByVendor" resultType="com.botman.saas.roboconfig.consumer.model.bo.ConsumerAccountInfo">
+        select c.*, ca.vendor_id as vendor_id, ca.consumer_acct_id as consumer_acct_id from consumer c left join consumer_acct ca on ca.consumer_id = c.consumer_id where ca.vendor_id = #{vendorId}
+    </select>
+    <insert id="addConsumer" useGeneratedKeys="true" keyProperty="consumerId">
+        insert into consumer (name, password, phone_num, profile, is_test_usr)
+        values (#{name}, #{password}, #{phoneNum}, #{profile}, #{isTestUsr})
+    </insert>
+    <insert id="insertWithPrimaryKey">
+        insert into consumer (consumer_id, name, password, phone_num, profile)
+        values (#{consumerId}, #{name}, #{password}, #{phoneNum}, #{profile}, #{isTestUser})
+    </insert>
+    <update id="updateConsumer">
+        update consumer set name = #{name},
+        phone_num = #{phoneNum}, profile = #{profile}, updated_at = now() where consumer_id = #{consumerId}
+    </update>
+    <select id="findByConsumerId" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where consumer_id = #{id}
+    </select>
+    <select id="findByConsumerByPhone" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where phone_num = #{it}
+    </select>
+    <select id="findByName" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where name =#{name}
+    </select>
+    <delete id="deleteConsumer">
+        delete from consumer where consumer_id = #{id}
+    </delete>
+    <delete id="deleteByConsumerPhone">
+        delete from consumer where phone_num = #{phone}
+    </delete>
+    <select id="getConsumerByName" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where name = #{name}
+    </select>
+    <select id="findByConsumerAccountId" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select c.* from consumer_acct ca inner join consumer c using (consumer_id) where ca.consumer_acct_id = #{consumerAccountId}
+    </select>
+    <select id="getConsumersByVendor" resultType="com.botman.saas.roboconfig.consumer.model.bo.ConsumerAccountInfo">
+        select c.*, ca.vendor_id as vendor_id, ca.consumer_acct_id as consumer_acct_id from consumer c left join consumer_acct ca on ca.consumer_id = c.consumer_id where ca.vendor_id = #{vendorId}
+    </select>
+    <insert id="addConsumer" useGeneratedKeys="true" keyProperty="consumerId">
+        insert into consumer (name, password, phone_num, profile, is_test_usr)
+        values (#{name}, #{password}, #{phoneNum}, #{profile}, #{isTestUsr})
+    </insert>
+    <insert id="insertWithPrimaryKey">
+        insert into consumer (consumer_id, name, password, phone_num, profile)
+        values (#{consumerId}, #{name}, #{password}, #{phoneNum}, #{profile}, #{isTestUser})
+    </insert>
+    <update id="updateConsumer">
+        update consumer set name = #{name},
+        phone_num = #{phoneNum}, profile = #{profile}, updated_at = now() where consumer_id = #{consumerId}
+    </update>
+    <select id="findByConsumerId" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where consumer_id = #{id}
+    </select>
+    <select id="findByConsumerByPhone" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where phone_num = #{it}
+    </select>
+    <select id="findByName" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where name =#{name}
+    </select>
+    <delete id="deleteConsumer">
+        delete from consumer where consumer_id = #{id}
+    </delete>
+    <delete id="deleteByConsumerPhone">
+        delete from consumer where phone_num = #{phone}
+    </delete>
+    <select id="getConsumerByName" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where name = #{name}
+    </select>
+    <select id="findByConsumerAccountId" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select c.* from consumer_acct ca inner join consumer c using (consumer_id) where ca.consumer_acct_id = #{consumerAccountId}
+    </select>
+    <select id="getConsumersByVendor" resultType="com.botman.saas.roboconfig.consumer.model.bo.ConsumerAccountInfo">
+        select c.*, ca.vendor_id as vendor_id, ca.consumer_acct_id as consumer_acct_id from consumer c left join consumer_acct ca on ca.consumer_id = c.consumer_id where ca.vendor_id = #{vendorId}
+    </select>
+    <insert id="addConsumer" useGeneratedKeys="true" keyProperty="consumerId">
+        insert into consumer (name, password, phone_num, profile, is_test_usr)
+        values (#{name}, #{password}, #{phoneNum}, #{profile}, #{isTestUsr})
+    </insert>
+    <insert id="insertWithPrimaryKey">
+        insert into consumer (consumer_id, name, password, phone_num, profile)
+        values (#{consumerId}, #{name}, #{password}, #{phoneNum}, #{profile}, #{isTestUser})
+    </insert>
+    <update id="updateConsumer">
+        update consumer set name = #{name},
+        phone_num = #{phoneNum}, profile = #{profile}, updated_at = now() where consumer_id = #{consumerId}
+    </update>
+    <select id="findByConsumerId" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where consumer_id = #{id}
+    </select>
+    <select id="findByConsumerByPhone" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where phone_num = #{it}
+    </select>
+    <select id="findByName" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where name =#{name}
+    </select>
+    <delete id="deleteConsumer">
+        delete from consumer where consumer_id = #{id}
+    </delete>
+    <delete id="deleteByConsumerPhone">
+        delete from consumer where phone_num = #{phone}
+    </delete>
+    <select id="getConsumerByName" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where name = #{name}
+    </select>
+    <select id="findByConsumerAccountId" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select c.* from consumer_acct ca inner join consumer c using (consumer_id) where ca.consumer_acct_id = #{consumerAccountId}
+    </select>
+    <select id="getConsumersByVendor" resultType="com.botman.saas.roboconfig.consumer.model.bo.ConsumerAccountInfo">
+        select c.*, ca.vendor_id as vendor_id, ca.consumer_acct_id as consumer_acct_id from consumer c left join consumer_acct ca on ca.consumer_id = c.consumer_id where ca.vendor_id = #{vendorId}
+    </select>
+    <insert id="addConsumer" useGeneratedKeys="true" keyProperty="consumerId">
+        insert into consumer (name, password, phone_num, profile, is_test_usr)
+        values (#{name}, #{password}, #{phoneNum}, #{profile}, #{isTestUsr})
+    </insert>
+    <insert id="insertWithPrimaryKey">
+        insert into consumer (consumer_id, name, password, phone_num, profile)
+        values (#{consumerId}, #{name}, #{password}, #{phoneNum}, #{profile}, #{isTestUser})
+    </insert>
+    <update id="updateConsumer">
+        update consumer set name = #{name},
+        phone_num = #{phoneNum}, profile = #{profile}, updated_at = now() where consumer_id = #{consumerId}
+    </update>
+    <select id="findByConsumerId" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where consumer_id = #{id}
+    </select>
+    <select id="findByConsumerByPhone" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where phone_num = #{it}
+    </select>
+    <select id="findByName" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where name =#{name}
+    </select>
+    <delete id="deleteConsumer">
+        delete from consumer where consumer_id = #{id}
+    </delete>
+    <delete id="deleteByConsumerPhone">
+        delete from consumer where phone_num = #{phone}
+    </delete>
+    <select id="getConsumerByName" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where name = #{name}
+    </select>
+    <select id="findByConsumerAccountId" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select c.* from consumer_acct ca inner join consumer c using (consumer_id) where ca.consumer_acct_id = #{consumerAccountId}
+    </select>
+    <select id="getConsumersByVendor" resultType="com.botman.saas.roboconfig.consumer.model.bo.ConsumerAccountInfo">
+        select c.*, ca.vendor_id as vendor_id, ca.consumer_acct_id as consumer_acct_id from consumer c left join consumer_acct ca on ca.consumer_id = c.consumer_id where ca.vendor_id = #{vendorId}
+    </select>
+    <insert id="addConsumer" useGeneratedKeys="true" keyProperty="consumerId">
+        insert into consumer (name, password, phone_num, profile, is_test_usr)
+        values (#{name}, #{password}, #{phoneNum}, #{profile}, #{isTestUsr})
+    </insert>
+    <insert id="insertWithPrimaryKey">
+        insert into consumer (consumer_id, name, password, phone_num, profile)
+        values (#{consumerId}, #{name}, #{password}, #{phoneNum}, #{profile}, #{isTestUser})
+    </insert>
+    <update id="updateConsumer">
+        update consumer set name = #{name},
+        phone_num = #{phoneNum}, profile = #{profile}, updated_at = now() where consumer_id = #{consumerId}
+    </update>
+    <select id="findByConsumerId" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where consumer_id = #{id}
+    </select>
+    <select id="findByConsumerByPhone" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where phone_num = #{it}
+    </select>
+    <select id="findByName" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where name =#{name}
+    </select>
+    <delete id="deleteConsumer">
+        delete from consumer where consumer_id = #{id}
+    </delete>
+    <delete id="deleteByConsumerPhone">
+        delete from consumer where phone_num = #{phone}
+    </delete>
+    <select id="getConsumerByName" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select * from consumer where name = #{name}
+    </select>
+    <select id="findByConsumerAccountId" resultType="com.botman.saas.roboconfig.consumer.model.bo.Consumer">
+        select c.* from consumer_acct ca inner join consumer c using (consumer_id) where ca.consumer_acct_id = #{consumerAccountId}
+    </select>
+    <select id="getConsumersByVendor" resultType="com.botman.saas.roboconfig.consumer.model.bo.ConsumerAccountInfo">
+        select c.*, ca.vendor_id as vendor_id, ca.consumer_acct_id as consumer_acct_id from consumer c left join consumer_acct ca on ca.consumer_id = c.consumer_id where ca.vendor_id = #{vendorId}
+    </select>
+</mapper>

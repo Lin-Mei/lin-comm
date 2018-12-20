@@ -31,7 +31,8 @@ dependencies {
     compile group: 'joda-time', name: 'joda-time', version: '2.10'
     compile 'org.elasticsearch.client:transport:5.6.4'
     compile  'org.projectlombok:lombok:1.18.0'
-
+    compile group: 'dom4j', name: 'dom4j', version: '1.6.1'
+    compile group: 'com.alibaba', name: 'fastjson', version: '1.2.51'
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile 'junit:junit:4.12'
 }
